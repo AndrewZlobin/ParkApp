@@ -1,0 +1,133 @@
+.main-content{
+    display: flex;
+    flex: 6;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    margin: 2rem 0 2rem 0;
+    padding: 1rem;
+}
+
+.main-content > div {
+    display: flex;
+    flex: 6;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    background-image: linear-gradient(grey, lightgrey, darkgray, dimgray);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    margin: 0.5rem 0 0.5rem 0;
+}
+
+.parking-description{
+    text-align: center;
+    width: 50%;
+}
+
+.parking-description h2{
+    font-size: 1.3rem;
+    line-height: 2rem;
+    padding: 0 0 0.1rem 0.2rem;
+    border-left: 0.5rem solid #a95800;
+    border-bottom: 0.2rem solid #a95800;
+    text-align: center;
+}
+
+.parking-description h3,
+.parking-description h4{
+    font-size: 1.2rem;
+    line-height: 1.75rem;
+    text-align: left;
+}
+
+/*.parking-description h4{*/
+/*    font-size: 1rem;*/
+/*    line-height: 1.25rem;*/
+/*}*/
+
+.news-row{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
+
+.split {
+    height: 100%;
+    width: 45vw;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 2rem;
+}
+
+.left {
+    left: 0;
+    background-color: rgba(239, 127, 26, 0.5);
+    border-radius: 7px;
+}
+
+.right {
+    right: 0;
+    background-color: rgba(146, 73, 0, 0.5);
+    border-radius: 7px;
+}
+
+.centered {
+    /* position: absolute; */
+    top: 100%;
+    left: 100%;
+    /* transform: translate(-50%, -50%); */
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .main-content{
+        margin: 1rem 0 1rem 0;
+        padding: 0.75rem;
+    }
+
+    .main-content > div{
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .parking-description{
+        width: 90%;
+        text-align: left;
+    }
+
+    .news-row {
+        display: flex;
+        flex: 1;
+        flex-direction: row;
+        justify-content: center;
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .main-content > div{
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .parking-description {
+        width: 60%;
+        text-align: left;
+    }
+
+    .news-row {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 75%;
+    }
+}

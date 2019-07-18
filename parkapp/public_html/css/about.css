@@ -1,0 +1,140 @@
+/*.about-page {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: space-evenly;*/
+/*    max-width: 40vw;*/
+/*    max-height: 30vh;*/
+/*    background-image: url(../img/about/about.jpg);*/
+/*    background-size: contain;*/
+/*}*/
+
+.main-content{
+    display: flex;
+    flex: 2;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.about-page {
+    background-image: url(../img/about/about.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 90vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-page p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    color: rgba(247, 247, 247, 0.9);
+    /* background-color: rgba(118, 105, 118, 0.4); */
+    background: linear-gradient(to right, rgba(239, 128, 19, 0.7), rgba(35, 27, 33, 0.8));
+    text-align: right;
+    margin: 0.5rem;
+    padding: 0.2rem;
+    border-radius: 5px;
+}
+
+.about-page p:first-child,
+.about-page p:last-child {
+    text-align: left;
+}
+
+.offices-list{
+    flex-direction: column;
+    display: flex;
+    align-items: initial;
+}
+
+.office-card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    max-width: 50vw;
+    max-height: 40vh;
+    margin: 2rem;
+    text-align: center;
+    background: radial-gradient(closest-side at 60% 55%, rgba(77, 66, 75, 0.8), rgba(210, 201, 197, 0.6));
+    border-radius: 10px;
+    padding: 0.75rem;
+}
+
+.office-card > *{
+    font-family: "Roboto Light", sans-serif;
+}
+
+.office-card p {
+    font-size: 1.4rem;
+    font-weight: lighter;
+}
+
+.office-address{
+    font-size: 1.3rem;
+    color: rgba(35, 27, 33, 1);
+    font-weight: bold;
+    /*font-family: sans-serif;*/
+    text-align: center;
+}
+
+.office-email{
+    font-size: 1.15rem;
+    color: rgba(35, 27, 33, 1);
+    font-family: fantasy;
+    text-align: right;
+}
+
+.office-phone{
+    font-size: 1rem;
+    color: rgba(35, 27, 33, 1);
+    font-family: fantasy;
+    text-align: right;
+}
+
+.office-techsupport{
+    font-size: 0.9rem;
+    color: rgba(35, 27, 33, 1);
+    font-family: fantasy;
+    text-align: right;
+}
+
+@media screen and (max-width: 900px) {
+    .about-page p {
+        font-size: 1.1rem;
+    }
+
+    .office-card{
+        max-width: 100%;
+        max-height: 100%;
+        max-width: 80vw;
+        max-height: 50vh;
+        margin: 1rem;
+    }
+
+    .office-card p {
+        font-size: 1.05rem;
+        font-weight: lighter;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .about-page p {
+        font-size: 0.75rem;
+    }
+
+    .main-content{
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /*.office-card{*/
+    /*    max-width: 100%;*/
+    /*    max-height: 100%;*/
+    /*}*/
+}

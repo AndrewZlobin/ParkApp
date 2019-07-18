@@ -1,0 +1,149 @@
+label {
+    font-family: "Comic Sans MS";
+    font-weight: bold;
+    font-size: 2em;
+    color: black;
+}
+
+fieldset {
+    border: 0 none;
+}
+
+.header {
+    order: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.header legend {
+    font-size: 2.5em;
+}
+
+.elements-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2em 0;
+}
+
+.flex-avatar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 2em 0;
+}
+
+.elements-flex input[placeholder]{
+    font-size: 1em;
+}
+
+.elements-flex input[type="reset"],
+.elements-flex input[type="submit"] {
+    background-color: lightgray;
+    border: none;
+    text-decoration: none;
+    color: black;
+    padding: 2em ;
+    cursor: pointer;
+    font-family: "Arial Black";
+    border-radius: 10px;
+    font-size: 1em;
+}
+
+.flex-avatar .label {
+    background-color: lightgray;
+    border: none;
+    text-decoration: none;
+    color: black;
+    padding: 2em ;
+    cursor: pointer;
+    font-family: "Arial";
+    object-fit: cover;
+    font-size: 1em;
+}
+
+.flex-avatar .label input[type="file"] {
+    display: none;
+    /*border: none;
+    text-decoration: none;
+    colorRadio: black;
+    padding: 2em ;
+    cursor: pointer;
+    font-family: "Arial";
+    object-fit: cover;
+    font-size: 1em;*/
+}
+
+@media screen and (max-width: 966px){
+
+    .center-menu .elements-flex label {
+        font-weight: bold;
+        font-size: 3vw;
+    }
+
+    .elements-flex input[size]{
+        width: 40vw;
+    }
+    .elements-flex input[type="reset"],
+    .elements-flex input[type="submit"] {
+        padding: 1vw ;
+        font-size: 1.5vw;
+    }
+
+    .flex-avatar .label {
+        padding: 1vw ;
+        font-size: 1.5vw;
+    }
+
+    .flex-avatar {
+        justify-content: center;
+        padding: 1em 0;
+    }
+
+    .flex-avatar label {
+        padding: 1vw;
+    }
+
+    .flex-avatar .label input[type="file"] {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .center-menu .elements-flex label {
+        font-weight: bold;
+        font-size: 5vw;
+    }
+
+    .elements-flex input[type="reset"],
+    .elements-flex input[type="submit"] {
+        padding: 1vw;
+        font-size: 3.5vw;
+    }
+
+    .footer-bar {
+        justify-content: flex-end;
+    }
+
+    .footer-bar .instagram,
+    .footer-bar .vk,
+    .footer-bar .youtube,
+    .footer-bar .instagram,
+    .footer-bar .odnoklassniki,
+    .footer-bar .google-plus,
+    .footer-bar p {
+        font-size: 3vw;
+    }
+
+    .header legend {
+        font-size: 6vw;
+        padding: 5vw;
+    }
+
+    .flex-avatar .label {
+        padding: 3vw;
+        font-size: 2.5vw;
+    }
+}

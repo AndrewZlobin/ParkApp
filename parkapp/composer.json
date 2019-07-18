@@ -1,0 +1,19 @@
+{
+    "name": "andrewz/parkapp",
+    "description": "payment server for AP-PRO parkings",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "andrew",
+            "email": "andrewz@3390017.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Andrew\\ParkApp\\": "source/"
+        }
+    }
+}

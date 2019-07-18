@@ -1,0 +1,39 @@
+/*Карта (слева) для выбора парковки*/
+
+.left-map{
+    display: flex;
+    flex: 2;
+    order: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#map{
+    width: 95vw;
+    height: 95vh;
+    padding: 0.5rem;
+    margin: 0.5rem;
+}
+
+.center-faq{
+    display: flex;
+    flex: 2;
+    order: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.form-right{
+    display: flex;
+    flex: 2;
+    order: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.test-for-marker {
+    color: darkorange;
+}
