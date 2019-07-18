@@ -33,32 +33,50 @@
 
 
 </div>
-<?php
-$mask['type'] = 'FeatureCollection';
-foreach ($json as $value){
-    $parkingX = floatval($value['parkingCoordinatesX']);
-    $parkingY = floatval($value['parkingCoordinatesY']);
-    $mask['features'][] =  array(
-        "type"=>"Feature",
-        "id"=>$value['idParking'],
-        "geometry"=>array(
-            "type"=>"Point",
-            "parkingCoordinates"=>[$parkingX, $parkingY]
-        ),
-        "properties"=> array(
-//                    "balloonContentHeader"=>$value['idParking'],
-            "balloonContentHeader"=>$value['parkingName'],
-            "balloonContentBody"=>$value['parkingDescription'],
-            "balloonContentFooter"=>$value['parkingTariff'],
-            "hintContent"=>$value['parkingName']
-
-        ),
-        "options"=>array(
-            "preset"=> "islands#orangeAutoIcon"
-        )
-    );
+<?php foreach ($json as $value){
+for ($i = 0; $i<$value['cityName']; $i++){
+//    echo $value['cityName'];
 }
-echo json_encode($mask, JSON_UNESCAPED_UNICODE);
+
+
+            $parkingX = floatval($value['parkingCoordinatesX']);
+            $parkingY = floatval($value['parkingCoordinatesY']);
+//            $mask =  array(
+//                "cityName"=>$value['cityName'],
+//                "parkings"=>array(
+//                    "parkingCoordinates"=>[$parkingX, $parkingY],
+//                    "name"=>$value['parkingAddress']
+//                ),
+//                "type"=>"Feature",
+//                "id"=>$value['idParking'],
+//                "geometry"=>array(
+//                    "type"=>"Point",
+//                    "parkingCoordinates"=>[$parkingX, $parkingY]
+//                ),
+//                "properties"=> array(
+//                    "balloonContentHeader"=>"<h3 class='test-for-marker'>".$value['parkingName']."</h3>",
+//                    "balloonContentBody"=>"<h4>Тариф: ".$value['parkingTariff']."</h4>"."<h5>Свободных мест: ".$value['parkingFreePlaces']."</h5>",
+//                    "balloonContentFooter"=>"<input type='submit' value='Выбрать'>"."<br>"."<input type='submit' value='В избранное'>",
+//                    "hintContent"=>$value['parkingName']
+//
+//                ),
+//                "options"=>array(
+//                    "preset"=> "islands#orangeAutoIcon"
+//                )
+//            );
+
+    $mask['name'] = $value['cityName'];
+    var_dump($value['cityName']);
+//            $mask[] = array(
+//                    'name'=>$value['cityName'],
+//                    'style' => "islands#redIcon",
+//                    'items'=>array(
+//                        'center'=>[$parkingX, $parkingY],
+//                        'name'=>$value['parkingDescription']
+//                    )
+//            );
+        }
+        var_dump($mask);
 ?>
 <!--<div class="left-map">Парковка-->
 <!--    <ul>Выберите парковку-->
