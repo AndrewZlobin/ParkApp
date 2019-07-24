@@ -1,7 +1,7 @@
 /*@import url("style-auth.css");*/
 /*@import url("style-abonements.css");*/
 
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+/*@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');*/
 
 /*Основные настройки стилей для всех страничек сайта*/
 
@@ -9,6 +9,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Roboto Condensed, sans-serif;
 }
 
 body {
@@ -18,8 +19,8 @@ body {
     background-attachment: fixed;
     width: 100%;
     color: #282828;
+    /*font-family: Roboto*/
 }
-
 /*Общие стили*/
 
 /*.top-bar {*/
@@ -137,7 +138,6 @@ body {
 /*Пока всё*/
 
 /*Самое основное - центральное меню на любой странице*/
-
 .main-content{
     display: flex;
     flex: 6;
@@ -149,9 +149,9 @@ body {
 /*Стили для кнопки "Онлайн-оплата"*/
 
 .payment-button{
-    width: 20vw;
-    height: 10vh;
-    padding: 3vh 3vw;
+    width: 100%;
+    height: 100%;
+    padding: 10vh 0;
     font-weight: bold;
     text-align: center;
     color: #0f0f0f;
@@ -308,625 +308,68 @@ body {
     background-image: url(../img/main/p8.jpg);
 }
 
-
-
-
-
-
-
-
-/*Стили для навигационного меню*/
-
-/*.button-menu {*/
-/*    display: flex;*/
-/*    width: 12vw;*/
-/*    height: auto;*/
-/*    margin: 3vw 1vw 3vw 1vw;*/
-/*}*/
-
-/*.top-bar {*/
-/*    display: flex;*/
-/*    flex-direction: row;*/
-/*    flex: 10;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*}*/
-
-/*.top-bar a {*/
-/*    display: flex;*/
-/*    justify-content: space-around;*/
-/*    align-items: center;*/
-/*    font-family: 'Roboto', sans-serif;*/
-/*    text-decoration: none;*/
-/*    text-transform: uppercase;*/
-/*    color: #282828;*/
-/*    font-size: 1.5vw;*/
-/*    padding: 1vw;*/
-/*    margin: -5vw 0 3vw 0;*/
-/*}*/
-
-/*.top-bar a:hover {*/
-/*    background-color: #ef7f1a;*/
-    /*background-color: rgba(239, 127, 26, 0.8);*/
-    /*color: #f7f7f7;*/
-    /*transform: skewX(-12deg);*/
-/*}*/
-
-/*.top-bar > ul {*/
-/*    list-style: none;*/
-/*    width: 100%;*/
-/*    display: flex;*/
-/*    flex-direction: row;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    background-image: url(../img/background_head.jpg);*/
-/*    background-size: cover;*/
-/*}*/
-
-/*.top-bar ul li.button-submenu {*/
-/*    position: relative;*/
-/*    !*width: 50%;*!*/
-/*}*/
-
-/*.top-bar ul li p {*/
-/*    display: none;*/
-/*}*/
-
-/*.top-bar ul li ul.dropdown-menu {*/
-/*    display: flex;*/
-/*    justify-content: flex-start;*/
-/*    align-items: center;*/
-/*}*/
-
-/*.top-bar ul li ul li {*/
-/*    list-style-type: none;*/
-/*    text-decoration: none;*/
-/*}*/
-
-/*!*Стили для центра*!*/
-
-/*.center-bar {*/
-/*    display: flex;*/
-/*    flex-direction: row;*/
-/*    flex: 10;*/
-/*}*/
-
-/*.center-bar .left-menu {*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    align-items: center;*/
-/*    justify-content: flex-start;*/
-/*    flex: 2;*/
-/*    order: 0;*/
-/*}*/
-
-/*.center-bar .center-menu {*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    flex: 6;*/
-/*    order: 1;*/
-/*}*/
-
-/*.center-bar .right-menu {*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    align-items: center;*/
-/*    justify-content: flex-start;*/
-/*    flex: 2;*/
-/*    order: 2;*/
-/*}*/
-
-/*.help-moscow,*/
-/*.help-spb,*/
-/*.help-samara,*/
-/*.help-ekaterinburg {*/
-/*    !*transform: rotate(270deg);*!*/
-/*    !*background-color: #f7f7f7;*!*/
-/*    !*opacity: 0.9;*!*/
-/*    text-align: center;*/
-/*    border: none;*/
-/*    text-decoration: none;*/
-/*    color: #282828;*/
-/*    padding: 5vw 1vw;*/
-/*    width: 100%;*/
-/*    height: 25vh;*/
-/*    cursor: pointer;*/
-/*    font-family: 'Roboto Light', arial;*/
-/*    font-size: 2vw;*/
-/*    border-bottom: 1em solid rgba(0, 0, 0, 0);*/
-/*    !*border-radius: 25px;*!*/
-/*}*/
-
-/*.help-moscow:hover,*/
-/*.help-spb:hover,*/
-/*.help-samara:hover,*/
-/*.help-ekaterinburg:hover {*/
-/*    !*background-color: #282828;*!*/
-/*    background-color: rgba(40, 40, 40, 0.8);*/
-/*    !*opacity: 5%;*!*/
-/*    border-bottom: 1em solid rgba(239, 127, 26, 0.7);*/
-/*    color: #f7f7f7;*/
-/*    border-radius: 1rem;*/
-/*    !*padding: 5vw 5vw;*!*/
-/*}*/
-
-/*.modal-moscow,*/
-/*.modal-spb,*/
-/*.modal-samara,*/
-/*.modal-ekaterinburg {*/
-/*    position: fixed;*/
-/*    font-family: Helvetica;*/
-/*    top: 0;*/
-/*    right: 0;*/
-/*    bottom: 0;*/
-/*    left: 0;*/
-/*    background: rgba(0,0,0,0.8);*/
-/*    z-index: 10;*/
-/*    transition: opacity 400ms ease-in;*/
-/*    display: none;*/
-/*    pointer-events: none;*/
-/*}*/
-
-/*.modal-moscow:target,*/
-/*.modal-spb:target,*/
-/*.modal-samara:target,*/
-/*.modal-ekaterinburg:target {*/
-/*    display: block;*/
-/*    pointer-events: auto;*/
-/*}*/
-
-/*.modal-moscow > div,*/
-/*.modal-spb > div,*/
-/*.modal-samara > div,*/
-/*.modal-ekaterinburg > div {*/
-/*    width: 400px;*/
-/*    position: relative;*/
-/*    margin: 10% auto;*/
-/*    padding: 5px 20px 13px 20px;*/
-/*    border-radius: 10px;*/
-/*    background: coral;*/
-/*}*/
-
-/*!*ul.dropdown-menu {*/
-/*    display: block;*/
-/*}*/
-
-/*.dropdown-menu li {*/
-/*    display: inline;*/
-/*}*!*/
-
-/*!*.top-bar ul {*/
-
-/*    list-style-type: none;*/
-/*    display: flex;*/
-/*    justify-content: space-around;*/
-/*    align-items: center;*/
-/*}*/
-
-/*.top-bar ul li {*/
-/*    border: darkorange solid 1px;*/
-/*    border-radius: 1px;*/
-/*}*/
-
-/*.top-bar ul li a {*/
-/*    text-decoration: none;*/
-/*    colorRadio: whitesmoke;*/
-/*}*!*/
-
-/*!*Стили для нижней части страницы (footer-а)*!*/
-
-/*.footer-bar {*/
-/*    display: flex;*/
-/*    flex-direction: row;*/
-/*    justify-content: space-around;*/
-/*    align-items: flex-end;*/
-/*    flex: 5;*/
-/*}*/
-
-/*.footer-bar section {*/
-/*    display: flex;*/
-/*    flex: 1;*/
-/*    flex-direction: column;*/
-/*}*/
-
-/*.footer-bar section div:first-child {*/
-/*    display: flex;*/
-/*    flex-direction: row;*/
-/*    align-items: center;*/
-/*    justify-content: center;*/
-/*    margin-bottom: -3em;*/
-/*}*/
-
-/*.footer-bar section div:last-child {*/
-/*    display: flex;*/
-/*    flex-direction: row;*/
-/*    align-items: center;*/
-/*    justify-content: center;*/
-/*    margin-top: 0;*/
-/*}*/
-
-/*.footer-bar section div:first-child a,*/
-/*.footer-bar section div:last-child a {*/
-/*    text-align: center;*/
-/*}*/
-
-/*.footer-bar section div a img {*/
-/*    width: 10em;*/
-/*    height: 10em;*/
-/*}*/
-
-/*.footer-bar div {*/
-/*    display: flex;*/
-/*    flex: 2;*/
-/*    justify-content: flex-end;*/
-/*    font-family: fantastic;*/
-/*    font-size: 1vw;*/
-/*    font-weight: lighter;*/
-/*}*/
-
-/*@media screen and (max-width: 996px) {*/
-
-/*    !*Меню*!*/
-/*    .top-bar a {*/
-/*        display: flex;*/
-/*        justify-content: center;*/
-/*        align-items: center;*/
-/*        font-family: 'Roboto Light', arial;*/
-/*        !*font-weight: lighter;*!*/
-/*        !*background: rgba(140, 140, 140, 0.2);*!*/
-/*        text-decoration: none;*/
-/*        text-transform: uppercase;*/
-/*        color: #282828;*/
-/*        font-size: 2vw;*/
-/*        padding: 1vw;*/
-/*    }*/
-
-/*    .top-bar ul {*/
-/*        list-style: none;*/
-/*        width: 100%;*/
-/*        display: flex;*/
-/*        flex-direction: row;*/
-/*        justify-content: center;*/
-/*        align-items: center;*/
-/*        background: rgba(140, 140, 140, 0.2);*/
-/*    }*/
-
-/*    .top-bar ul li {*/
-/*        display: flex;*/
-/*        flex-direction: row;*/
-/*        justify-content: space-evenly;*/
-/*        !*position: relative;*!*/
-/*        width: 100%;*/
-/*        text-align: center;*/
-/*    }*/
-
-/*    !*.top-bar ul li ul.dropdown-menu{*!*/
-/*    !*    display: none;*!*/
-/*    !*}*!*/
-
-/*    .top-bar ul li p {*/
-/*        display: flex;*/
-/*        flex-direction: row;*/
-/*        !*top: 0;*!*/
-/*        !*display: block;*!*/
-/*        font-size: 1em;*/
-/*    }*/
-
-/*    !*.top-bar ul li p:hover {*!*/
-/*    !*    background-color: whitesmoke;*!*/
-/*    !*    color: black;*!*/
-/*    !*}*!*/
-
-/*    !*.top-bar li:hover .dropdown-menu > li {*!*/
-/*    !*    top: 0;*!*/
-/*    !*    display: block;*!*/
-/*    !*}*!*/
-
-/*    !*.top-bar ul li ul.dropdown-menu li {*!*/
-/*    !*    position: relative;*!*/
-/*    !*    display: none;*!*/
-/*    !*}*!*/
-
-/*    !*.top-bar ul li ul.dropdown-menu {*!*/
-/*    !*    position: relative;*!*/
-/*    !*    display: flex;*!*/
-/*    !*    flex-direction: column;*!*/
-/*    !*    width: 100%;*!*/
-/*    !*}*!*/
-
-/*    !*Основные элементы*!*/
-/*    .center-bar .left-menu {*/
-/*        display: flex;*/
-/*        flex-direction: column;*/
-/*        align-items: center;*/
-/*        justify-content: flex-start;*/
-/*        flex: 2;*/
-/*        order: 1;*/
-/*    }*/
-
-/*    .center-bar .center-menu {*/
-/*        display: flex;*/
-/*        flex-direction: column;*/
-/*        flex: 6;*/
-/*        order: 0;*/
-/*    }*/
-
-/*    .center-bar .right-menu {*/
-/*        display: none*/
-/*    }*/
-
-/*    .footer-bar {*/
-/*        justify-content: flex-start;*/
-/*    }*/
-
-/*    !*Флексы*!*/
-/*    .help-moscow,*/
-/*    .help-spb,*/
-/*    .help-samara,*/
-/*    .help-ekaterinburg {*/
-/*        background-color: crimson;*/
-/*        opacity: 0.9;*/
-/*        border: none;*/
-/*        text-decoration: none;*/
-/*        color: black;*/
-/*        padding: 2vw;*/
-/*        margin: 5vw 0;*/
-/*        cursor: pointer;*/
-/*        font-family: Arial Black;*/
-/*        font-size: 2vw;*/
-/*        border-radius: 25px;*/
-/*    }*/
-
-/*    .footer-bar .youtube,*/
-/*    .footer-bar .vk,*/
-/*    .footer-bar .odnoklassniki,*/
-/*    .footer-bar .google-plus*/
-/*    .footer-bar p{*/
-/*        margin: 0.5vw 0.5vw;*/
-/*    }*/
-/*}*/
-
-
-/*@media screen and (max-width: 768px) {*/
-
-/*    !*Меню снова как на большом экране, только column*!*/
-/*    .button-menu {*/
-/*        display: none;*/
-/*    }*/
-
-/*    .top-bar {*/
-/*        display: flex;*/
-/*        flex-direction: row;*/
-/*        flex: 10;*/
-/*        justify-content: center;*/
-/*        align-items: center;*/
-/*    }*/
-
-/*    .top-bar > ul {*/
-/*        list-style: none;*/
-/*        width: 100%;*/
-/*        display: flex;*/
-/*        flex-direction: row;*/
-/*        justify-content: center;*/
-/*        align-items: center;*/
-/*        background: rgba(140, 140, 140, 0.2);*/
-/*    }*/
-
-/*    .top-bar ul li.button-submenu {*/
-/*        position: relative;*/
-/*        display: flex;*/
-/*        flex-direction: column;*/
-/*        justify-content: space-around;*/
-/*    }*/
-
-/*    .top-bar ul li p {*/
-/*        display: none;*/
-/*    }*/
-
-/*    .top-bar ul li ul.dropdown-menu li {*/
-/*        display: block;*/
-/*    }*/
-
-/*    .center-bar .left-menu {*/
-/*        display: none;*/
-/*    }*/
-/*}*/
-
-/*!*    .center-bar .center-menu {*/
-/*        display: flex;*/
-/*        flex-direction: row;*/
-/*        flex: 7;*/
-/*        order: 1;*/
-/*    }*/
-
-/*    !*Для левого и правого полей*!*/
-/*    .center-bar .left-menu {*/
-/*        display: flex;*/
-/*        flex-direction: column;*/
-/*        flex: 3;*/
-/*        order: 0;*/
-/*    }*/
-
-/*    .center-bar .right-menu {*/
-/*        display: flex;*/
-/*        flex-direction: column;*/
-/*        flex: 3;*/
-/*        order: 2;*/
-/*    }*/
-
-/*    !*Backup*!*/
-/*    .flex-right {*/
-/*        display: none;*/
-/*    }*/
-
-/*    .flex-center {*/
-/*        flex: 100%;*/
-/*    }*/
-
-/*    .nav-menu ul{*/
-/*        display: flex;*/
-/*        flex-direction: column;*/
-/*        float: left;*/
-/*        width: 100%;*/
-/*    }*/
-
-/*    .nav-menu li:hover .submenu > li {*/
-/*        top: 0;*/
-/*        display: inline-block;*/
-/*    }*/
-
-/*    .flex-center {*/
-/*        flex-direction: row;*/
-/*    }*/
-
-/*    .flex-bottom {*/
-/*        display: flex;*/
-/*        flex-direction: row;*/
-/*        width: 100%;*/
-/*        flex-wrap: wrap;*/
-/*        justify-content: center;*/
-/*    }*/
-
-/*    .flex-bottom p {*/
-/*        width: 75%;*/
-/*    }*/
-
-/*    .dropdown {*/
-/*        display: flex;*/
-/*        flex-direction: column;*/
-/*    }*!*/
-
-/*@media screen and (max-width: 600px) {*/
-/*    !*Здесь я пока не знаю =( *!*/
-/*}*/
-
-
-
-
-
-
-/*!*.footer-bar p {*/
-/*    font-family: Arial;*/
-/*    font-size: 2.5vw;*/
-/*    margin: 0.5vw 0;*/
-/*}*!*/
-
-/*!*.footer-bar .youtube {*/
-/*    background-color: red;*/
-/*    font-size: 1.75vw;*/
-/*    border-radius: 15px;*/
-/*    padding: 1.25vw;*/
-/*    text-decoration: none;*/
-/*    color: white;*/
-/*    margin: 0.5vw 0;*/
-/*}*/
-
-/*.footer-bar .vk {*/
-/*    background-color: darkblue;*/
-/*    font-size: 1.75vw;*/
-/*    border-radius: 15px;*/
-/*    padding: 1.25vw;*/
-/*    text-decoration: none;*/
-/*    color: white;*/
-/*    margin: 0.5vw 0;*/
-/*}*/
-
-/*.footer-bar .instagram {*/
-/*    background-color: darkmagenta;*/
-/*    font-size: 1.75vw;*/
-/*    border-radius: 15px;*/
-/*    padding: 1.25vw;*/
-/*    text-decoration: none;*/
-/*    color: darkgoldenrod;*/
-/*    margin: 0.5vw 0;*/
-/*}*/
-/*.footer-bar .odnoklassniki {*/
-/*    background-color: orange;*/
-/*    font-size: 1.75vw;*/
-/*    border-radius: 15px;*/
-/*    padding: 1.25vw;*/
-/*    text-decoration: none;*/
-/*    color: black;*/
-/*    margin: 0.5vw 0;*/
-/*}*/
-/*.footer-bar .google-plus {*/
-/*    background-color: whitesmoke;*/
-/*    font-size: 1.75vw;*/
-/*    border-radius: 15px;*/
-/*    padding: 1.25vw;*/
-/*    text-decoration: none;*/
-/*    color: darkred;*/
-/*    margin: 0.5vw 0;*/
-/*}*!*/
-
-
-/*!*Backup*!*/
-
-/*!**/
-/*.dropdown {*/
-/*    display: flex;*/
-/*}*/
-
-/*.drop-button {*/
-/*    display: none;*/
-/*}*/
-
-/*.nav-menu {*/
-/*    width: 100%;*/
-/*}*/
-
-/*.nav-menu img {*/
-/*    display: none;*/
-/*}*/
-
-/*.nav-menu ul {*/
-/*    display: flex;*/
-/*    list-style: none;*/
-/*}*/
-
-/*.nav-menu a {*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    background: darkorange;*/
-/*    colorRadio: whitesmoke;*/
-/*    text-decoration: none;*/
-/*    text-transform: uppercase;*/
-/*    font-family: "Trebuchet MS";*/
-/*    font-size: 2vw;*/
-/*    !*padding: 5%;*!*/
-/*    border: black solid 1px;*/
-/*}*/
-
-/*.nav-menu a:hover {*/
-/*    background: whitesmoke;*/
-/*    colorRadio: darkorange;*/
-/*}*/
-
-/*.nav-menu ul li {*/
-/*    position: relative;*/
-/*    width: 100%;*/
-/*    text-align: center;*/
-/*}*/
-
-/*.nav-menu li:hover .submenu > li {*/
-/*    top: 0;*/
-/*    display: block;*/
-/*}*/
-
-/*.submenu > li {*/
-/*    position: relative;*/
-/*    display: none;*/
-/*}*/
-
-/*.submenu {*/
-/*    position: absolute;*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    width: 100%;*/
-/*}*/
-
-/*img {*/
-/*    height: auto;*/
-/*    width: 50vw;*/
-/*}*!*/
+@media screen and (max-width: 900px) {
+    .header {
+        display: flex;
+        flex-direction: row-reverse;
+        flex: 6;
+        background-image: url(../img/background_head.jpg);
+        background-size: cover;
+    }
+
+    .header-right div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .payment-button {
+        width: 100%;
+        height: 100%;
+        padding: 15vh 0;
+        font-weight: bold;
+        text-align: center;
+        color: #0f0f0f;
+    }
+
+    .header-list {
+        list-style: none;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: 5vh 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        flex: 6;
+        background-image: url(../img/background_head.jpg);
+        background-size: cover;
+    }
+
+    .payment-button {
+        width: 50%;
+        height: 50%;
+        padding: 5vh 0;
+        font-weight: bold;
+        text-align: center;
+        color: #0f0f0f;
+    }
+
+    .header-list {
+        list-style: none;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: 5vh 0;
+    }
+}

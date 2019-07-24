@@ -70,6 +70,10 @@ class FormValidator{
                 //     close.remove();
                 // }, 4000);
                 document.getElementsByName(this._validElems[i].name)[0].focus();
+            } else {
+                let notification = document.createElement("p");
+                notification.innerHTML = "Успешно!";
+                this._content.appendChild(notification);
             }
         }
     };
@@ -125,7 +129,7 @@ for(let i = 0; i < document.forms.length; i++) {
             console.info("Validation has no errors!");
 
             let data = new FormData(this);
-            console.log(document.forms.signInForm);
+            console.log(document.forms.signUpForm);
             console.log(this);
 
             // for (let j = 0; j < this.elements.length-1; j++) {

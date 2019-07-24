@@ -9,7 +9,7 @@
     align-items: center;
 }
 
-#map{
+#YMapsID{
     width: 95vw;
     height: 95vh;
     padding: 0.5rem;
@@ -34,6 +34,22 @@
     align-items: center;
 }
 
-.test-for-marker {
+#YMapsID h6 {
     color: darkorange;
+    font-size: 1.2rem;
+}
+
+#YMapsID form > input{
+    border: none;
+}
+#YMapsID form > input[name = "BarCode"]{
+    border: 0.1px solid darkorange;
+    width: 25vw;
+    height: auto;
+}
+
+#YMapsID form > p {
+    font-size: 1rem;
+    text-align: center;
+    margin: 0.25vh 0.25vw;
 }

@@ -3,7 +3,8 @@
 let addObject = document.forms.addObject;
 addObject.addEventListener("submit", addingObject);
 console.log(addObject);
-function addingObject(){
+function addingObject(event){
+    event.preventDefault();
     let addObject = new FormData(this);
     let xhr = new XMLHttpRequest();
     xhr.open("POST", this.action, true);
@@ -11,10 +12,8 @@ function addingObject(){
     xhr.onload = function (event) {
         if (xhr.status == 200) {
             alert("Успешно!");
-            window.location.href="/account";
         } else {
             alert("Возникли ошибки! Обратитесь в отдел разработки");
-            window.location.href="/account";
         }
     }
 }

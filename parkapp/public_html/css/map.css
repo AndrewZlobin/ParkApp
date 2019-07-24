@@ -1,0 +1,26 @@
+#userMap{
+    width: 75vw;
+    height: 75vh;
+    padding: 0.5rem;
+    margin: 0.5rem;
+}
+
+#userMap h6 {
+    color: darkorange;
+    font-size: 1.2rem;
+}
+
+#userMap form > input{
+    border: none;
+}
+#userMap form > input[name = "BarCode"]{
+    border: 0.1px solid darkorange;
+    width: 25vw;
+    height: auto;
+}
+
+#userMap form > p {
+    font-size: 1rem;
+    text-align: center;
+    margin: 0.25vh 0.25vw;
+}

@@ -1,7 +1,7 @@
-/*
 ymaps.ready()
     .done(function (ym) {
-        var myMap = new ym.Map('map', {
+        var geolocation = ymaps.geolocation,
+        myMap = new ym.Map('YMapsID', {
             center: [55.751574, 37.573856],
             zoom: 10,
             controls: ['smallMapDefaultSet']
@@ -9,29 +9,87 @@ ymaps.ready()
             searchControlProvider: 'yandex#search'
         });
 
+        geolocation.get({
+            provider: 'yandex',
+            mapStateAutoApply: true
+        }).then(function (result) {
+            // Красным цветом пометим положение, вычисленное через ip.
+            result.geoObjects.options.set('preset', 'islands#blackCircleIcon');
+            // result.geoObjects.get(0).properties.set({
+            //     balloonContentBody: 'Мое местоположение'
+            // });
+            myMap.geoObjects.add(result.geoObjects);
+        });
+
+        geolocation.get({
+            provider: 'browser',
+            mapStateAutoApply: true
+        }).then(function (result) {
+            // Синим цветом пометим положение, полученное через браузер.
+            // Если браузер не поддерживает эту функциональность, метка не будет добавлена на карту.
+            result.geoObjects.options.set('preset', 'islands#redCircleIcon');
+            myMap.geoObjects.add(result.geoObjects);
+        });
+
         $.ajax({
             url:"/index/hidden",
             success: function(json){
-                var geoObjects = ym.geoQuery(json)
-                    .addToMap(myMap)
-                    // .applyBoundsToMap(myMap, {
-                    //     checkZoomRange: true
-                    // });
+                let a = JSON.parse(json);
+                // console.log(a);
+                for (let i = 0; i < a.length; i++) {
+                    let myPlacemark = new ymaps.Placemark([a[i]["coordinatesX"], a[i]["coordinatesY"]], {
+                        // Чтобы балун и хинт открывались на метке, необходимо задать ей определенные свойства.
+                        balloonContentHeader: '<form action="/payment/choose/'+a[i]["id"]+'" id="choosedParking'+a[i]["id"]+'" method="post">' + '<h6>'+a[i]["name"]+'</h6>',
+                        balloonContent: '<input type="hidden" name="Login" value="api">'+'<p>'+a[i]["description"]+'</p>'
+                                        +'<br>'+
+                                        '<input type="hidden" name="Pwd" value="api">'+'<p>Тариф: '+a[i]["tariff"]+'</p>'
+                                        +'<br>'+
+                                        '<input type="text" name="BarCode" placeholder="Введите штрих-код">',
+                        balloonContentFooter: '<input type="submit" value="Выбрать">' + '</form>',
+                        hintContent: a[i]["name"]
+                    },{
+                        preset: "islands#orangeAutoIcon"
+                    });
+                    var geoObjects = ym.geoQuery(myPlacemark)
+                        .addToMap(myMap)
+                        // .applyBoundsToMap(myMap, {
+                        //     checkZoomRange: true
+                        // });
+                    // console.log(myPlacemark);
+                }
+
+                // var json = JSON.parse(json);
+                // for (let i = 0; i < json.features.length; i++) {
+                //     let balloonContentBody = json.features[0]["properties"]["balloonContent"];
+                //     console.log(typeof balloonContentBody);
+                //     // for (let j = 0; j < json.features[i]["properties"].length; j++) {
+                //     //
+                //     // }
+                //
+                // }
+                // var json = JSON.stringify(json);
+
             }
         });
 
-        // let json = JSON.parse(json);
-        // console.log(json);
+        // features: Array(8)
+        // 0:
+        // geometry: {type: "Point", coordinates: Array(2)}
+        // id: "1"
+        // options: {preset: "islands#orangeAutoIcon"}
+        // properties:
+        //     balloonContentBody:
 
-        jQuery.getJSON('/index/hidden', function (json) {
-            /!** Сохраним ссылку на геообъекты на случай, если понадобится какая-либо постобработка.
-             * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/GeoQueryResult.xml
-             *!/
-            var geoObjects = ym.geoQuery(json)
-                .addToMap(myMap)
-                // .applyBoundsToMap(myMap, {
-                //     checkZoomRange: true
-                // });
+
+        // jQuery.getJSON('/index/hidden', function (json) {
+        //     /** Сохраним ссылку на геообъекты на случай, если понадобится какая-либо постобработка.
+        //      * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/GeoQueryResult.xml
+        //      */
+        //     var geoObjects = ym.geoQuery(json)
+        //         .addToMap(myMap)
+        //         .applyBoundsToMap(myMap, {
+        //             checkZoomRange: true
+        //         });
             // for (let i = 0; i < json.features.length; i++){
             //     console.log(json.features[i]["properties"]["hintContent"]);
             //     console.log(json.features[i]["id"]);
@@ -42,28 +100,7 @@ ymaps.ready()
             // document.cookie = a + " = " + b;
             // console.log(json.features[0]["properties"]["hintContent"]);
             // console.table(json.features.length);
-        });
+        // });
     });
 
-// console.warn(document.cookie[2]);*/
-
-ymaps.ready()
-    .done(function (ym) {
-        var myMap = new ym.Map('map', {
-            center: [55.751574, 37.573856],
-            zoom: 10
-        }, {
-            searchControlProvider: 'yandex#search'
-        });
-
-        jQuery.getJSON('/hidden', function (json) {
-            /** Сохраним ссылку на геообъекты на случай, если понадобится какая-либо постобработка.
-             * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/GeoQueryResult.xml
-             */
-            var geoObjects = ym.geoQuery(json)
-                .addToMap(myMap)
-                .applyBoundsToMap(myMap);/*, {
-                    checkZoomRange: true
-                });*/
-        });
-    });
+// console.warn(document.cookie[2]);
