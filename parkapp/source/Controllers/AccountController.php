@@ -40,11 +40,12 @@ class AccountController extends Controller
         } elseif ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $post = $_POST;
             $params = [
-                'username' => $post['login'],
-                'email' => $post['email'],
-                'phone' => $post['phone'],
-                'role'=>'USER',
-                'hash'=>password_hash($post['password'], PASSWORD_DEFAULT)
+                'userLogin' => $post['login'],
+                'userEmail' => $post['email'],
+                'userPhone' => $post['phone'],
+                'userHash'=>password_hash($post['password'], PASSWORD_DEFAULT),
+                'userRole'=>'USER',
+                'userParkSystem'=>'NO'
             ];
 
             if($this->usersRepository->save($params) === false) {
@@ -53,7 +54,7 @@ class AccountController extends Controller
                 ];
                 echo $this->renderPage('sign.php', 'template.php', $data);
             } else {
-                header('Location: /account');
+                header('Location: /account/sign');
             };
         }
     }
@@ -73,25 +74,18 @@ class AccountController extends Controller
     {
         session_start();
         if (!isset($_SESSION['name'])) header('Location: /');
-        if($_SESSION['role'])
-            $accountPage = strtolower($_SESSION['role'])."_account.php";
-//        switch ($_SESSION['role']) {
-//            case 'ADMIN':
-//                $accountPage = 'admin_account.php';
-//                break;
-//            case 'USER':
-//                $accountPage = 'user_account.php';
-//                break;
-//            case 'AREND_AP':
-//                $accountPage = 'admin_ap_account.php';
-//                break;
-//            case 'AREND_TP':
-//                $accountPage = 'admin_tp_account.php';
-//                break;
-//            case 'MANAGER':
-//                $accountPage = 'manager_account.php';
-//                break;
-//        }
+//            $accountPage = strtolower($_SESSION['role'])."_account.php";
+        if ($_SESSION['role'] == 'ADMIN') {
+            $accountPage = 'admin_account.php';
+        } elseif ($_SESSION['role'] == 'USER') {
+            $accountPage = 'user_account.php';
+        } elseif ($_SESSION['role'] == 'AREND_AP') {
+            $accountPage = 'admin_ap_account.php';
+        } elseif ($_SESSION['role'] == 'AREND_TP') {
+            $accountPage = 'admin_tp_account.php';
+        } elseif ($_SESSION['role'] == 'MANAGER'){
+            $accountPage = 'manager_account.php';
+        }
 
         $data = [
             'title_account' => 'Personal Account',
@@ -167,6 +161,120 @@ class AccountController extends Controller
                 'offices' => $offices
             ];
             echo $this->renderPage($content, $template, $data);
+        }
+    }
+
+    public function selfchangeAction()
+    {
+        session_start();
+        $content = strtolower($_SESSION['role']) . '_self_change.php';
+        $template = 'template_account.php';
+        $user = $this->usersRepository->getById(intval($_SESSION['ID']));
+        $data = [
+            'auth' => isset($_SESSION['name']),
+            'title' => 'User Account Change',
+            'user' => $user,
+//                'style_general' => 'general.css',
+            'style_page' => 'sign.css',
+            'js_script' => 'validation.js'
+        ];
+        echo parent::renderPage($content, $template, $data);
+    }
+
+    public function userchangeAction()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+            header('Location: /account');
+        } elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            session_start();
+            // если post запрос, обрабатываем данные
+            $post = $_POST;
+            var_dump($post);
+            $params = [
+                'idUser'=>$post['ID'],
+                'userEmail'=>$post['email'],
+                'userPhone'=>$post['phone']
+            ];
+            if($this->usersRepository->update($params) === false){
+                echo "Error";
+            } else {
+                echo "Success";
+            }
+        }
+    }
+
+    public function favouriteAction()
+    {
+        session_start();
+        $content = strtolower($_SESSION['role']) . '_favourite.php';
+        $template = 'template_account.php';
+        $user = $this->usersRepository->getById(intval($_SESSION['ID']));
+        $parkings = $this->parkingsRepository->getUserFavourite(intval($_SESSION['ID']));
+        $data = [
+            'auth' => isset($_SESSION['name']),
+            'title' => 'User Account Change',
+            'user' => $user,
+            'parkings' => $parkings
+//                'style_general' => 'general.css',
+//                'style_page' => 'sign.css',
+//                'js_script' => 'validation.js'
+        ];
+        echo parent::renderPage($content, $template, $data);
+    }
+
+    public function mapAction()
+    {
+        session_start();
+        $content = strtolower($_SESSION['role']) . '_map.php';
+        $template = 'template_account.php';
+//        $user = $this->usersRepository->getById(intval($_SESSION['ID']));
+//        $parkings = $this->parkingsRepository->getUserFavourite(intval($_SESSION['ID']));
+        $data = [
+            'auth' => isset($_SESSION['name']),
+            'title' => 'User Account Change',
+            'map' => 'map.css'
+        ];
+        echo parent::renderPage($content, $template, $data);
+    }
+
+    public function hiddenmapAction()
+    {
+        $json = $this->parkingsRepository->parkingsOnMap();
+        foreach ($json as $value){
+            $parkingX = floatval($value['parkingCoordinatesX']);
+            $parkingY = floatval($value['parkingCoordinatesY']);
+            $mask[] = array(
+                "id"=>$value['idParking'],
+                "coordinatesX"=>$parkingX,
+                "coordinatesY"=>$parkingY,
+                "name"=>$value['parkingName'],
+                "description"=>$value['parkingDescription'],
+                "tariff"=>$value['parkingTariff'],
+                "free"=>$value['parkingFreePlaces'],
+                'news'=>$value['parkingNews'],
+                'promotions'=>$value['parkingPromotions']
+            );
+        }
+        echo json_encode($mask, JSON_UNESCAPED_UNICODE);
+    }
+
+    public function parktofavouriteAction($id)
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+            header('Location: /account');
+        } elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            session_start();
+            // если post запрос, обрабатываем данные
+            $post = $_POST;
+            $params = [
+                'Users_idUser'=>$_SESSION['ID'],
+                'Parkings_idParking'=>$post['idParking']
+            ];
+            if($this->parkingsRepository->addUserFavourite($params) === false){
+                header("Location: /account");
+            } else {
+                header("Location: /account/favourite");
+            }
         }
     }
 }

@@ -36,9 +36,9 @@ class UsersRepository implements Repository
 
     public function isAuth($post)
     {
-        $sql = 'SELECT * FROM Users WHERE userEmail=:email';
+        $sql = 'SELECT * FROM Users WHERE userEmail=:userEmail';
         $params = [
-            'email' => $post['email']
+            'userEmail' => $post['email']
         ];
         $result = $this->db->paramsGetOne($sql, $params);
         if (!$result) return false; //если по email записи не найдено - получил false
@@ -61,5 +61,17 @@ class UsersRepository implements Repository
                 ON users_has_parkings.Parkings_idParking = parkings.idParking 
                 WHERE users.userRole LIKE :userRole";
         return $this->db->paramsGetAll($sql, $params);
+    }
+
+    public function update($params)
+    {
+        $sql = "UPDATE Users SET userEmail=:userEmail, userPhone=:userPhone
+                WHERE idUser=:idUser";
+        return $this->db->nonSelectQuery($sql, $params);
+    }
+
+    public function showFavourite()
+    {
+        $sql = "SELECT * FROM Parkings";
     }
 }

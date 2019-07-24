@@ -16,6 +16,14 @@ class ParkingsRepository implements Repository
         $this->db = DB::getDB();
     }
 
+    public function getAllJSON()
+    {
+
+        $sql = 'SELECT * FROM Parkings';
+        return $this->db->getAll($sql);
+
+    }
+
     public function getAll()
     {
         $sql = 'SELECT * FROM Parkings';
@@ -42,13 +50,31 @@ class ParkingsRepository implements Repository
         $sql = 'SELECT parkings.`idParking`, parkings.`parkingName`, parkings.`parkingAddress`,
                 parkings.`parkingDescription`, 
                 parkings.`parkingCoordinatesX`, parkings.`parkingCoordinatesY`, 
+                parkingtechinfo.parkingTariff, parkingtechinfo.parkingFreePlaces,
+                parkingclientinfo.parkingNews, parkingclientinfo.parkingPromotions
+                FROM parkings 
+                LEFT JOIN parkingtechinfo 
+                ON parkings.idParking = parkingtechinfo.techInfo
+                LEFT JOIN parkingclientinfo
+                ON parkings.idParking = parkingclientinfo.clientInfo 
+                ORDER BY parkings.idParking;';
+        return $this->db->getAll($sql);
+    }
+
+    public function parkingsOnMapById(int $id)
+    {
+
+        $sql = 'SELECT parkings.`idParking`, parkings.`parkingName`, parkings.`parkingAddress`,
+                parkings.`parkingDescription`, 
+                parkings.`parkingCoordinatesX`, parkings.`parkingCoordinatesY`, 
                 parkingtechinfo.parkingTariff, parkingtechinfo.parkingFreePlaces 
                 FROM parkings 
                 LEFT JOIN parkingtechinfo 
                 ON parkings.idParking = parkingtechinfo.techInfo 
-                ORDER BY parkings.idParking;';
-        return $this->db->getAll($sql);
-
+                ORDER BY parkings.idParking
+                WHERE idParking =: idParking;';
+        $params = ['idParking' => $id];
+        return $this->db->paramsGetOne($sql, $params);
     }
 
     public function saveCity($params)
@@ -173,8 +199,27 @@ class ParkingsRepository implements Repository
             return $this->db->getConnection()->commit();
         }
         catch (\PDOException $e){
-            $this->db->getConnection()->rollBack();
             echo "Ошибка ". $e->getMessage();
+            return $this->db->getConnection()->rollBack();
         }
+    }
+
+    public function getUserFavourite(int $id)
+    {
+        $params = ['id' => $id];
+        $sql = "SELECT parkings.`parkingName`, parkings.`parkingAddress`, parkings.`parkingDescription`,users_has_parkings.Users_idUser, users_has_parkings.Parkings_idParking
+                FROM parkings
+                LEFT JOIN users_has_parkings
+                ON parkings.idParking = users_has_parkings.Parkings_idParking
+                LEFT JOIN users
+                ON users.idUser = users_has_parkings.Users_idUser
+                WHERE users_has_parkings.Users_idUser =:id";
+        return $this->db->paramsGetAll($sql, $params);
+    }
+
+    public function addUserFavourite($params)
+    {
+        $sql = "INSERT INTO `Users_has_Parkings`VALUES (:Users_idUser, :Parkings_idParking)";
+        return $this->db->nonSelectQuery($sql, $params);
     }
 }

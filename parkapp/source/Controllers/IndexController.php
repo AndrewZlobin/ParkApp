@@ -36,28 +36,36 @@ class IndexController extends Controller
     public function hiddenAction()
     {
         $json = $this->parkingsRepository->parkingsOnMap();
-        $mask['type'] = 'FeatureCollection';
         foreach ($json as $value){
             $parkingX = floatval($value['parkingCoordinatesX']);
             $parkingY = floatval($value['parkingCoordinatesY']);
-            $mask['features'][] =  array(
-                "type"=>"Feature",
+//            $mask['features'][] =  array(
+//                "type"=>"Feature",
+//                "id"=>$value['idParking'],
+//                "geometry"=>array(
+//                    "type"=>"Point",
+//                    "coordinates"=>[$parkingX, $parkingY]
+//                ),
+//                "properties"=> array(
+//////                    "balloonContentHeader"=>$value['idParking'],
+//                    "balloonContentHeader" => "<h1>".$value['parkingName']."</h1>"."<h2>".$value['parkingDescription']."</h2>",
+////                    "balloonContent" => ['<form class="map_form">', '<input type="text" placeholder="Your Name">', '<input type="text" placeholder="Email Adress">', '<textarea placeholder="Your Message">', '</textarea>', '</form>'],
+//                    "balloonContent" => $value['parkingAddress'].$value['parkingTariff'],
+////                    "balloonContentBody" => "<h3>".$value['parkingTariff']."</h3>"."<h3>".$value['parkingFreePlaces']."</h3>",
+//                    "balloonContentFooter" => "<button type='submit' value='Выбрать'>",
+//                    "hintContent" => "<h4>".$value['parkingName']."</h4>"
+//                ),
+//                "options"=>array(
+//                    "preset"=> "islands#orangeAutoIcon"
+//                )
+//            );
+            $mask[] = array(
                 "id"=>$value['idParking'],
-                "geometry"=>array(
-                    "type"=>"Point",
-                    "parkingCoordinates"=>[$parkingX, $parkingY]
-                ),
-                "properties"=> array(
-//                    "balloonContentHeader"=>$value['idParking'],
-                    "balloonContentHeader"=>"Header: ".$value['parkingName'],
-                    "balloonContentBody"=>$value['parkingDescription'],
-                    "balloonContentFooter"=>$value['parkingTariff'],
-                    "hintContent"=>$value['parkingName']
-
-                ),
-                "options"=>array(
-                    "preset"=> "islands#orangeAutoIcon"
-                )
+                "coordinatesX"=>$parkingX,
+                "coordinatesY"=>$parkingY,
+                "name"=>$value['parkingName'],
+                "description"=>$value['parkingDescription'],
+                "tariff"=>$value['parkingTariff']
             );
         }
         echo json_encode($mask, JSON_UNESCAPED_UNICODE);

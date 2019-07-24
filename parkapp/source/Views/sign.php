@@ -1,17 +1,17 @@
 <div class="form-container sign-up-container">
     <form method="post" action="/account/signup" name="signUpForm" enctype="multipart/form-data">
-        <input class="validate" type="text" name="login" placeholder="Имя"/>
-        <input class="validate" type="tel" name="phone" placeholder="Телефон"/>
-        <input class="validate" type="email" name="email" placeholder="Почта" />
-        <input class="validate" type="password" name="password" placeholder="Пароль" />
+        <input class="validate" type="text" name="login" placeholder="Имя" required/>
+        <input class="validate" type="tel" name="phone" placeholder="Телефон" required/>
+        <input class="validate" type="email" name="email" placeholder="Почта" required/>
+        <input class="validate" type="password" name="password" placeholder="Пароль" required/>
         <button type="submit">Регистрация</button>
     </form>
 </div>
 <div class="form-container sign-in-container">
     <form method="post" action="/account/signin" name="signInForm" enctype="multipart/form-data">
         <h1>Авторизация</h1>
-        <input class="validate" type="email" name="email" placeholder="Почта" />
-        <input class="validate" type="password" name="password" placeholder="Пароль" />
+        <input class="validate" type="email" name="email" placeholder="Почта" required/>
+        <input class="validate" type="password" name="password" placeholder="Пароль" required/>
         <button type="submit">Авторизация</button>
     </form>
 </div>

@@ -73,17 +73,17 @@
 <!--                                Основная информация о парковке-->
                                 <input class="form-control form-control-sm" type="hidden" id="techInfo<?php echo $object['idParking']; ?>" name="idParking" value="<?php echo $object['idParking']; ?>">
                                 <label for="parkingName<?php echo $object['idParking']; ?>">Название</label>
-                                <input class="form-control form-control-sm" type="text" id="parkingName<?php echo $object['idParking']; ?>" name="parkingName" value="<?php echo $object['parkingName']; ?>">
+                                <input class="form-control form-control-sm" type="text" required id="parkingName<?php echo $object['idParking']; ?>" name="parkingName" value="<?php echo $object['parkingName']; ?>">
                                 <label for="parkingCoordinates<?php echo $object['idParking']; ?>">Координаты</label>
-                                <input class="form-control form-control-sm" type="text" id="parkingCoordinates<?php echo $object['idParking']; ?>" name="parkingCoordinates" value="<?php echo $object['parkingCoordinatesX'].", ".$object['parkingCoordinatesY']; ?>">
+                                <input class="form-control form-control-sm" type="text" required id="parkingCoordinates<?php echo $object['idParking']; ?>" name="parkingCoordinates" value="<?php echo $object['parkingCoordinatesX'].", ".$object['parkingCoordinatesY']; ?>">
                                 <label for="parkingAddress<?php echo $object['idParking']; ?>">Адрес парковки</label>
-                                <input class="form-control form-control-sm" type="text" id="parkingAddress<?php echo $object['idParking']; ?>" name="parkingAddress" value="<?php echo $object['parkingAddress']; ?>">
+                                <input class="form-control form-control-sm" type="text" required id="parkingAddress<?php echo $object['idParking']; ?>" name="parkingAddress" value="<?php echo $object['parkingAddress']; ?>">
                                 <label for="parkingURL<?php echo $object['idParking']; ?>">URL</label>
-                                <input class="form-control form-control-sm" type="text" id="parkingURL<?php echo $object['idParking']; ?>" name="parkingURL" value="<?php echo $object['parkingURL']; ?>">
+                                <input class="form-control form-control-sm" type="text" required id="parkingURL<?php echo $object['idParking']; ?>" name="parkingURL" value="<?php echo $object['parkingURL']; ?>">
                                 <label for="parkingDescription<?php echo $object['idParking']; ?>">Описание</label>
-                                <input class="form-control form-control-sm" type="text" id="parkingDescription<?php echo $object['idParking']; ?>" name="parkingDescription" value="<?php echo $object['parkingDescription']; ?>">
+                                <input class="form-control form-control-sm" type="text" required id="parkingDescription<?php echo $object['idParking']; ?>" name="parkingDescription" value="<?php echo $object['parkingDescription']; ?>">
                                 <label for="parkingSystem<?php echo $object['idParking']; ?>">Парковочная система</label>
-                                <input class="form-control form-control-sm" type="text" id="parkingSystem<?php echo $object['idParking']; ?>" name="parkingSystem" value="<?php echo $object['parkingSystem']; ?>">
+                                <input class="form-control form-control-sm" type="text" required id="parkingSystem<?php echo $object['idParking']; ?>" name="parkingSystem" value="<?php echo $object['parkingSystem']; ?>">
                                 <label for="parkingCity">Город</label>
 
                                 <select class="custom-select" id="parkingCity<?php echo $object['idParking']; ?>" name="parkingCity">
@@ -113,9 +113,9 @@
                                 <!--                                Основная информация о парковке-->
                                 <input class="form-control form-control-sm" type="hidden" id="idAddParkingTechInfo<?php echo $object['idParking']; ?>" name="idParking" value="<?php echo $object['idParking']; ?>">
                                 <label for="parkingTariff<?php echo $object['idParking']; ?>">Тариф</label>
-                                <input class="form-control form-control-sm" type="text" id="addParkingTariff<?php echo $object['idParking']; ?>" name="parkingTariff" value="<?php echo $object['parkingTariff']; ?>">
+                                <input class="form-control form-control-sm" type="text" required id="addParkingTariff<?php echo $object['idParking']; ?>" name="parkingTariff" value="<?php echo $object['parkingTariff']; ?>">
                                 <label for="parkingFreePlaces<?php echo $object['idParking']; ?>">Свободных мест</label>
-                                <input class="form-control form-control-sm" type="text" id="addParkingFreePlaces<?php echo $object['idParking']; ?>" name="parkingFreePlaces" value="<?php echo $object['parkingFreePlaces']; ?>">
+                                <input class="form-control form-control-sm" type="text" required id="addParkingFreePlaces<?php echo $object['idParking']; ?>" name="parkingFreePlaces" value="<?php echo $object['parkingFreePlaces']; ?>">
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                     <button type="submit" class="btn btn-primary">Save changes</button>
@@ -141,9 +141,9 @@
                                 <!--                                Основная информация о парковке-->
                                 <input class="form-control form-control-sm" type="hidden" id="idUpdateParkingTechInfo<?php echo $object['idParking']; ?>" name="idParking" value="<?php echo $object['idParking']; ?>">
                                 <label for="parkingTariff<?php echo $object['idParking']; ?>">Тариф</label>
-                                <input class="form-control form-control-sm" type="text" id="updateParkingTariff<?php echo $object['idParking']; ?>" name="parkingTariff" value="<?php echo $object['parkingTariff']; ?>">
+                                <input class="form-control form-control-sm" type="text" required id="updateParkingTariff<?php echo $object['idParking']; ?>" name="parkingTariff" value="<?php echo $object['parkingTariff']; ?>">
                                 <label for="parkingFreePlaces<?php echo $object['idParking']; ?>">Свободных мест</label>
-                                <input class="form-control form-control-sm" type="text" id="updateParkingFreePlaces<?php echo $object['idParking']; ?>" name="parkingFreePlaces" value="<?php echo $object['parkingFreePlaces']; ?>">
+                                <input class="form-control form-control-sm" type="text" required id="updateParkingFreePlaces<?php echo $object['idParking']; ?>" name="parkingFreePlaces" value="<?php echo $object['parkingFreePlaces']; ?>">
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                     <button type="submit" class="btn btn-primary">Save changes</button>
@@ -168,9 +168,9 @@
                                 <!--                                Основная информация о парковке-->
                                 <input class="form-control form-control-sm" type="hidden" id="idAddParkingClientInfo<?php echo $object['idParking']; ?>" name="idParking" value="<?php echo $object['idParking']; ?>">
                                 <label for="parkingNews<?php echo $object['idParking']; ?>">Новость</label>
-                                <input class="form-control form-control-sm" type="text" id="addParkingNews<?php echo $object['idParking']; ?>" name="parkingNews" value="<?php echo $object['parkingNews']; ?>">
+                                <input class="form-control form-control-sm" type="text" required id="addParkingNews<?php echo $object['idParking']; ?>" name="parkingNews" value="<?php echo $object['parkingNews']; ?>">
                                 <label for="parkingPromotions<?php echo $object['idParking']; ?>">Акция</label>
-                                <input class="form-control form-control-sm" type="text" id="appParkingPromotions<?php echo $object['idParking']; ?>" name="parkingPromotions" value="<?php echo $object['parkingPromotions']; ?>">
+                                <input class="form-control form-control-sm" type="text" required id="appParkingPromotions<?php echo $object['idParking']; ?>" name="parkingPromotions" value="<?php echo $object['parkingPromotions']; ?>">
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                     <button type="submit" class="btn btn-primary">Save changes</button>
@@ -197,9 +197,9 @@
                                 <!--                                Основная информация о парковке-->
                                 <input class="form-control form-control-sm" type="hidden" id="idUpdateParkingClientInfo<?php echo $object['idParking']; ?>" name="idParking" value="<?php echo $object['idParking']; ?>">
                                 <label for="parkingNews<?php echo $object['idParking']; ?>">Новость</label>
-                                <input class="form-control form-control-sm" type="text" id="updateParkingNews<?php echo $object['idParking']; ?>" name="parkingNews" value="<?php echo $object['parkingNews']; ?>">
+                                <input class="form-control form-control-sm" type="text" required id="updateParkingNews<?php echo $object['idParking']; ?>" name="parkingNews" value="<?php echo $object['parkingNews']; ?>">
                                 <label for="parkingPromotions<?php echo $object['idParking']; ?>">Акция</label>
-                                <input class="form-control form-control-sm" type="text" id="updateParkingPromotions<?php echo $object['idParking']; ?>" name="parkingPromotions" value="<?php echo $object['parkingPromotions']; ?>">
+                                <input class="form-control form-control-sm" type="text" required id="updateParkingPromotions<?php echo $object['idParking']; ?>" name="parkingPromotions" value="<?php echo $object['parkingPromotions']; ?>">
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                     <button type="submit" class="btn btn-primary">Save changes</button>
